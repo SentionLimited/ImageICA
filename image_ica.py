@@ -454,7 +454,7 @@ def save_model(SAVE_DIR, inverse_mapping, PATCH_DIM, NUM_MODES):
     
 def load_model(LOAD_DIR):
     """
-    Load model from a given director, LOAD_DIR.
+    Load model from a given directory, LOAD_DIR.
 
     Parameters
     ----------
@@ -551,7 +551,7 @@ def extract_all_patches_from_img(I, PATCH_DIM):
 
 def im_shift_norm(I):
     """
-    Given an image, I, scale all pixels such that the {min, max} of entire 
+    Given an image, I, scale all pixels such that the {min, max} of the entire 
     image is remapped to the range {0,1}.
 
     Parameters
