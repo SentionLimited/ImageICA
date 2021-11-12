@@ -81,7 +81,6 @@ if LEARN_MODEL == 1:
         
 ########################## SAVE FINAL MODEL ###################################
     
-    SAVE_TO_FILE = 1
     if SAVE_TO_FILE == 1:
         print(' * SAVING MODEL TO FILE ... ', end='')    
         ica.save_model(SAVE_DIR, inverse_mapping, PATCH_DIM, NUM_MODES)
@@ -89,7 +88,6 @@ if LEARN_MODEL == 1:
         
 ######################## LOAD SOLUTION FROM FILE #############################
 
-LOAD_FROM_FILE = 1
 if LOAD_FROM_FILE == 1:
     print(' * LOADING MODEL FROM FILE ... ', end='')    
     inverse_mapping, PATCH_DIM, NUM_MODES = ica.load_model(LOAD_DIR)
@@ -97,13 +95,14 @@ if LOAD_FROM_FILE == 1:
 
 #################### APPLY AND VISUALISE SOLUTION #############################
 
+final_img, modal_images = \
+    ica.visualise_solution(I, inverse_mapping, PATCH_DIM, NUM_MODES)
+
 if VISUALISE == 1:
     
     # Generate the final greyscale output image, as well as the stack of 
     # modal component images from which it derives
     print(' * GENERATING VISUALISATION ... ', end='')
-    final_img, modal_images = \
-        ica.visualise_solution(I, inverse_mapping, PATCH_DIM, NUM_MODES)
     print('DONE')
 
     # Plot the solution
@@ -111,3 +110,8 @@ if VISUALISE == 1:
     ax.imshow(final_img)
     
 
+if SAVE_TO_FILE == 1:
+
+    print(' * SAVING VISUALISATION TO FILE ... ', end='')
+    ica.save_visualisation(SAVE_DIR, final_img)
+    print('DONE')

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import cv2
+import matplotlib.pyplot as plt
 import math
 import numpy as np
 import os
@@ -624,4 +625,22 @@ def visualise_solution(I, inverse_mapping, PATCH_DIM, NUM_MODES):
     
     return final_img, modal_images 
 
+def save_visualisation(SAVE_DIR, img):
+    """
+    Save visualisation to a given directory, SAVE_DIR. If save path does not
+    exist, the directory will be created.
+
+    Parameters
+    ----------
+    SAVE_DIR : text
+        Path of save directory.
+    img : numpy array (uint8)
+        Resulting image after running ICA method.
+
+    """
     
+    if not os.path.isdir(SAVE_DIR):
+        os.mkdir(SAVE_DIR)
+    
+    # cv2.imwrite(SAVE_DIR+'vis.png', img)
+    plt.imsave(SAVE_DIR+'vis.png', img)
