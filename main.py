@@ -23,7 +23,7 @@ I = ica.preprocess_img(I)
 ########################## SCRIPT PARAMETERS ##################################
 
 LEARN_MODEL = 1         # Learn new model for the current image?
-SAVE_TO_FILE = 1        # Save learned model to file?
+SAVE_TO_FILE = 1        # Save learned model and results to file?
 SAVE_DIR = 'Results/'   # Save directory
 LOAD_FROM_FILE = 0      # Load previous model from file?
 LOAD_DIR = 'Results/'   # Load directory
