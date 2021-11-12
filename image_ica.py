@@ -634,7 +634,7 @@ def save_visualisation(SAVE_DIR, img):
     ----------
     SAVE_DIR : text
         Path of save directory.
-    img : numpy array (uint8)
+    img : numpy array (floats)
         Resulting image after running ICA method.
 
     """
@@ -642,5 +642,4 @@ def save_visualisation(SAVE_DIR, img):
     if not os.path.isdir(SAVE_DIR):
         os.mkdir(SAVE_DIR)
     
-    # cv2.imwrite(SAVE_DIR+'vis.png', img)
     plt.imsave(SAVE_DIR+'vis.png', img)
